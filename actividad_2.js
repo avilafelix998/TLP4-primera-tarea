@@ -28,12 +28,34 @@ depositar(monto) {
         }
     
 }
+// extraer
+    extraer(monto) {
+        if (monto > this.#saldo) {
+            console.log("fondos insuficientes");
+        } else if (monto <= 0) {
+            console.log("El monto a extraer debe ser mayor que 0.");
+        } else {
+            this.#saldo -= monto;
+            console.log(`Has retirado $${monto}. Nuevo saldo: $${this.#saldo}`);
+        }
+    }
+
+    consultarSaldo() {
+        console.log(`Saldo actual: $${this.#saldo}`);
+    }
+
+
 }
-// extraer 
 
+const cuenta1 = new CuentaBancaria("felix",2000) 
 
+cuenta1.consultarSaldo(); 
+cuenta1.depositar(500);   
+cuenta1.extraer(3000);    
+cuenta1.extraer(1500);    
 
-
+console.log(cuenta1.saldo); 
+cuenta1.saldo = -500;       
 
 
 
